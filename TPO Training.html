@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TPO Training Center</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav button {
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    nav button:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-bottom: 40px;
+    }
+
+    hr {
+      margin: 40px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TPO Center Of Excelence</h1>
+    <p>Grow your skills. One module at a time.</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('tech')">Tech</button>
+    <button onclick="showPage('ops')">Ops</button>
+  </nav>
+
+  <div id="home" class="container page active">
+    <h2>🏠 Welcome to the TPO Training Center</h2>
+    <p>Select a category to begin your training journey.</p>
+    <ul>
+      <li><button onclick="showPage('tech')">Tech Training</button></li>
+      <li><button onclick="showPage('ops')">Ops Training</button></li>
+    </ul>
+  </div>
+
+  <div id="tech" class="container page">
+    <h2>💻 Tech Training Modules</h2>
+    <ul>
+      <li><button onclick="showPage('gtm')">📊 GTM Training – By Frank Savidge</button></li>
+    </ul>
+  </div>
+
+  <div id="ops" class="container page">
+    <h2>⚙️ Ops Training Modules</h2>
+    <ul>
+      <li><button onclick="showPage('mx')">🔍 MX Training - By Andre Ferreira</button></li>
+      <li><button onclick="showPage('trafficking')">🚦 Trafficking Training – By Lauren Pringle</button></li>
+    </ul>
+  </div>
+
+  <div id="gtm" class="container page">
+    <h2>📊 GTM Training – By Frank Savidge</h2>
+    <iframe 
+      src="https://insidemedia.sharepoint.com/:p:/r/sites/TPO-SharePoint/_layouts/15/Doc.aspx?sourcedoc=%7BB269B4AE-FADC-4F9A-AD37-33BA933E011E%7D&file=GTM%20Training%20-%20Frank.pptx&action=embedview"
+      title="GTM Training Slides - Frank Savidge"
+      allowfullscreen>
+    </iframe>
+
+    <div class="training-section">
+      <h3>✅ Concise Summary</h3>
+      <ul>
+        <li><strong>GTM Purpose:</strong> Manage tracking tags without altering website code directly.</li>
+        <li><strong>Core Concepts:</strong>
+          <ul>
+            <li><strong>Tag:</strong> Sends data (e.g., to Floodlight, Meta).</li>
+            <li><strong>Trigger:</strong> Specifies when a tag fires.</li>
+            <li><strong>Variable:</strong> Supplies dynamic data (e.g., revenue, product ID).</li>
+          </ul>
+        </li>
+        <li><strong>Tag Creation:</strong> Use templates or custom HTML snippets.</li>
+        <li><strong>Data Layer:</strong> Contains dynamic values used in tags/triggers.</li>
+        <li><strong>Testing & Debugging:</strong>
+          <ul>
+            <li>Use GTM Preview mode and Chrome DevTools.</li>
+            <li>Verify tag firing and variable population.</li>
+          </ul>
+        </li>
+        <li><strong>Common Issues:</strong> Poor site structure and delayed client responses.</li>
+        <li><strong>Client Notes:</strong> Smaller clients are more hands-on; larger ones more delayed.</li>
+      </ul>
+
+      <hr>
+
+      <h3>📝 Detailed Summary</h3>
+
+      <h4>🧠 Introduction & Terminology</h4>
+      <ul>
+        <li>GTM allows deployment of tracking tags without modifying source code.</li>
+        <li><strong>Site tag:</strong> Tracks user activity on a website.</li>
+        <li><strong>Tag:</strong> Contains code snippet + trigger + variable.</li>
+      </ul>
+
+      <h4>🧰 Building a Tag in GTM</h4>
+      <ol>
+        <li><strong>Start with the tag:</strong>
+          <ul>
+            <li>Use template (e.g., Floodlight, Meta Pixel) or custom HTML.</li>
+            <li>Example: Floodlight needs <code>tag string</code> and <code>activity string</code>.</li>
+          </ul>
+        </li>
+        <li><strong>Add variables:</strong>
+          <ul>
+            <li>Identify needed data: revenue, product ID, etc.</li>
+            <li>Use data layer (e.g., <code>ecommerce.current.items.price</code>).</li>
+          </ul>
+        </li>
+        <li><strong>Create triggers:</strong>
+          <ul>
+            <li>Specify when tag should fire (e.g., on purchase confirmation).</li>
+            <li>Custom events are more reliable than URL-based triggers.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h4>🧪 Testing & Validation</h4>
+      <ul>
+        <li>Use <strong>GTM Preview Mode</strong> to test tag firing and variable data.</li>
+        <li>Use <strong>Chrome DevTools → Network tab</strong> to confirm tag success and platform delivery.</li>
+      </ul>
+
+      <h4>⚠️ Common Problems</h4>
+      <ul>
+        <li>Badly structured data layers make finding variables difficult.</li>
+        <li>Clients not providing specs upfront cause back-and-forth delays.</li>
+        <li>Clients often avoid doing test purchases, even when required.</li>
+      </ul>
+
+      <h4>👥 Client Scenarios</h4>
+      <ul>
+        <li>Smaller clients (especially in Scotland) are more cooperative with tagging.</li>
+        <li>Larger brands (e.g., Tesco, Sky) often handle tagging internally or via agencies, which slows implementation.</li>
+      </ul>
+
+      <h4>🧪 Final Demo</h4>
+      <ul>
+        <li>Meta Pixel tag example shown:
+          <ul>
+            <li>Used Meta template and inserted Pixel ID.</li>
+            <li>Trigger set to fire on <strong>All Page Views</strong>, no variable or data layer needed.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="mx" class="container page">
+    <h2>🔍 MX Training - By Andre Ferreira</h2>
+    <iframe 
+      src="https://insidemedia.sharepoint.com/:p:/r/sites/TPO-SharePoint/_layouts/15/Doc.aspx?sourcedoc=%7B30CAB438-0561-458A-B5E2-D97EB9702E67%7D&file=MX%20Training.pptx&action=embedview"
+      title="MX Training Slides"
+      allowfullscreen>
+    </iframe>
+
+    <div class="training-section">
+      <h3>✅ Concise Summary</h3>
+      <ul>
+        <li><strong>🔧 Purpose of Training:</strong> Help OPS and Tech teams understand MX and its applications.</li>
+        <li><strong>📌 Core Concepts:</strong> MX is for data visualization only; all campaign changes happen in Prisma.</li>
+        <li><strong>🛠️ Main Functions:</strong> Installation, navigation, querying, exporting, unlocking, and troubleshooting.</li>
+        <li><strong>📤 Templates & Exports:</strong> Save time with reusable field templates for specific needs.</li>
+        <li><strong>🧩 Extra Tools:</strong> Unlock Wizard for single-line unlocks with additional training available.</li>
+      </ul>
+
+      <hr>
+
+      <h3>📝 Detailed Summary</h3>
+
+      <h4>🔧 Purpose of Training</h4>
+      <ul>
+        <li>Help OPS and Tech teams understand what MX is and how it's used.</li>
+        <li>Covers basic and advanced features: installation, navigation, querying, exporting, unlocking, and troubleshooting.</li>
+        <li>Intended to supplement current workflows and clarify MX's limitations and integration with Prisma.</li>
+      </ul>
+
+      <h4>📌 Core Concepts</h4>
+      <ul>
+        <li>MX is for visualizing data only; all campaign edits/bookings happen in Prisma, not MX.</li>
+        <li>MX updates in real-time when changes are approved in Prisma and data is refreshed.</li>
+      </ul>
+
+      <h4>🛠️ Main Functions Covered</h4>
+      <ol>
+        <li><strong>Installing, Repairing, Updating MX</strong></li>
+        <li><strong>Navigating Queries:</strong>
+          <ul>
+            <li>Filter reports (e.g., by client or date).</li>
+            <li>Identify relevant campaigns using IOs.</li>
+          </ul>
+        </li>
+        <li><strong>Validating Data:</strong>
+          <ul>
+            <li>Compare invoice data against campaign details in MX/Prisma.</li>
+            <li>Ensure invoice matches are accurate (e.g., gross vs. payable amounts).</li>
+          </ul>
+        </li>
+        <li><strong>Exporting Data:</strong>
+          <ul>
+            <li>Export reports to Excel after applying filters and templates.</li>
+            <li>Use templates to customize columns for specific audit or finance needs.</li>
+          </ul>
+        </li>
+        <li><strong>Unlocking Lines:</strong>
+          <ul>
+            <li>Access via lock icon.</li>
+            <li>Right-click to insert unlock requests for editing fields like commission, value, or discounts.</li>
+            <li>Use Unlock Wizard for single-line unlocks.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h4>📤 Templates & Exports</h4>
+      <ul>
+        <li>Templates help save time by reusing specific fields.</li>
+        <li>Only filtered data is exported; large datasets are not feasible for full export.</li>
+      </ul>
+
+      <h4>🧩 Extra Tools</h4>
+      <ul>
+        <li>Unlock Wizard for single-line unlocks.</li>
+        <li>Further MX Unlock training available for more complex workflows.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="trafficking" class="container page">
+    <h2>🚦 Trafficking Training - By Lauren Pringle</h2>
+    <iframe 
+      src="https://insidemedia.sharepoint.com/:p:/r/sites/TPO-SharePoint/_layouts/15/Doc.aspx?sourcedoc=%7BF3660030-3336-4A54-9C87-E6B36DCB0DDA%7D&file=Trafficking%20Presentation.pptx&action=embedview"
+      title="Trafficking Training Slides - Lauren Pringle"
+      allowfullscreen>
+    </iframe>
+
+    <div class="training-section">
+      <h3>✅ Concise Summary</h3>
+      <ul>
+        <li><strong>🎯 Purpose:</strong> Ensures accurate data collection, consistent metrics, and error detection.</li>
+        <li><strong>🔧 Best Practices:</strong> Ask the right questions early, collaborate with teams, understand different media setups.</li>
+        <li><strong>🏷️ Tag Types:</strong> 1x1 tags, click tags, event pixels, URL swaps, DCO, video tags.</li>
+        <li><strong>🎬 Creative Rotation:</strong> Even, optimized, sequential, and random options.</li>
+        <li><strong>💡 Tip:</strong> Trafficking becomes easier with experience – don't hesitate to ask questions!</li>
+      </ul>
+
+      <hr>
+
+      <h3>📝 Detailed Summary</h3>
+
+      <h4>🎯 Purpose & Importance</h4>
+      <ul>
+        <li>Trafficking plays a critical role in digital advertising by ensuring:
+          <ul>
+            <li>📊 <strong>Accurate data collection</strong> (impressions, clicks, conversions, user behavior)</li>
+            <li>🧮 <strong>Consistency between platform and third-party metrics</strong></li>
+            <li>🚨 <strong>Quick error detection</strong> (e.g., pixel misfires, delivery discrepancies)</li>
+            <li>🛡️ <strong>Compliance and audit readiness</strong> (e.g., GDPR, CCPA, SLAs)</li>
+            <li>🧾 <strong>Invoice reconciliation</strong> (independent tracking for cost verification)</li>
+            <li>📈 <strong>Real-time performance reporting</strong> and optimization opportunities</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>🔧 Foundational Best Practices</h4>
+      <ul>
+        <li>❓ Ask the right questions early (e.g., platform setup, pixel needs, creative hosting)</li>
+        <li>🤝 Collaborate closely with planning teams and suppliers</li>
+        <li>🔍 Understand the trafficking setup for different media types and buying paths (PST vs. direct)</li>
+      </ul>
+
+      <h4>🏷️ Tag Types & Key Concepts</h4>
+      <ul>
+        <li><strong>📌 1x1 Tags</strong>
+          <ul>
+            <li>Lightweight image pixels used when heavier tracking is restricted</li>
+            <li>Common in:
+              <ul>
+                <li>📺 Platforms with strict tracker policies (e.g., YouTube via DV360)</li>
+                <li>📱 Environments like in-app or social media</li>
+              </ul>
+            </li>
+            <li>✅ <strong>Always monitoring tags</strong>, ❌ never blocking</li>
+            <li>🚫 Cannot be associated directly with creatives</li>
+          </ul>
+        </li>
+
+        <li><strong>🔗 Click Tags</strong>
+          <ul>
+            <li>Always 1x1 tags</li>
+            <li>Only click tracking is implemented (no impression tracking)</li>
+          </ul>
+        </li>
+
+        <li><strong>🎯 Event Pixels</strong>
+          <ul>
+            <li>Used to track specific actions like conversions or page views</li>
+            <li>Can be embedded in main tags or triggered by user interaction</li>
+            <li>⚠️ May conflict with Campaign Manager's radar pixel (removal often required)</li>
+          </ul>
+        </li>
+
+        <li><strong>🔁 URL Swaps</strong>
+          <ul>
+            <li>Require full trafficking sheet updates, not just shared links</li>
+            <li>✅ Always verify URLs before submission to avoid campaign issues</li>
+          </ul>
+        </li>
+
+        <li><strong>🎨 DCO (Dynamic Creative Optimization)</strong>
+          <ul>
+            <li>Real-time creative personalization</li>
+            <li>Requires:
+              <ul>
+                <li>🧱 DCO base file (template from creative agency)</li>
+                <li>🧩 DTK (Dynamic Targeting Key) for targeting and logic control</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>🔄 Creative Rotation in CM</h4>
+      <ul>
+        <li>Controls how multiple creatives are served:
+          <ul>
+            <li>⚖️ <strong>Even</strong>: Equal rotation</li>
+            <li>🚀 <strong>Optimized</strong>: Based on performance</li>
+            <li>🧵 <strong>Sequential</strong>: Fixed order</li>
+            <li>🎲 <strong>Random</strong>: No pattern</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>🎬 Video Tags</h4>
+      <ul>
+        <li>Preferably hosted when possible</li>
+        <li>Key checks:
+          <ul>
+            <li>🧠 Supplier acceptance of <strong>VPAID</strong> (interactive ads)</li>
+            <li>👁️ <strong>OMID</strong> support (viewability measurement)</li>
+            <li>🛠️ <strong>IAS wrapping</strong> compatibility</li>
+          </ul>
+        </li>
+        <li>🧪 Alternatives:
+          <ul>
+            <li>Request supplier VAST tag for wrapping</li>
+            <li>Use UVP tag or Non-Standard Tag templates if wrapping is not supported</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>💡 Final Note</h4>
+      <ul>
+        <li>Trafficking can be complex at first, but becomes easier with experience.</li>
+        <li><strong>🙋 No question is a stupid question</strong> — reach out to your team for support anytime!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 TPO Training Center. All rights reserved.</p>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
